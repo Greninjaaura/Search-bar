@@ -12,7 +12,16 @@ function search() {
 }
 
 function performSearch(term) {
-  return sampleData.filter(result => result.title.toLowerCase().includes(term));
+  // First, check for matches in titles
+  var titleResults = sampleData.filter(result => result.title.toLowerCase().includes(term));
+
+  // If there are no results based on titles, check for matches in content
+  if (titleResults.length === 0) {
+    return sampleData.filter(result => result.content.toLowerCase().includes(term));
+  }
+
+  // Return the results based on titles if any
+  return titleResults;
 }
 
 function displayResults(results) {
