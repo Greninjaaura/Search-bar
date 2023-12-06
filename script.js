@@ -34,8 +34,10 @@ function displayResults(results) {
     // Step 4: If there is no data available at all
     if (sampleData.length === 0) {
       resultsContainer.innerHTML = "No data available.";
-  } 
-  else {
+    } else {
+      resultsContainer.innerHTML = "No results found.";
+    }
+  } else {
     // Display each result
     results.forEach(result => {
       var resultElement = document.createElement("div");
