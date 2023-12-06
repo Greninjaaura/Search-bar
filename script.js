@@ -12,10 +12,10 @@ function search() {
 }
 
 function performSearch(term) {
-  // First, check for matches in titles
+  // Step 1: Check for matches in titles
   var titleResults = sampleData.filter(result => result.title.toLowerCase().includes(term));
 
-  // If there are no results based on titles, check for matches in content
+  // Step 2: If there are no results based on titles, check for matches in content
   if (titleResults.length === 0) {
     return sampleData.filter(result => result.content.toLowerCase().includes(term));
   }
@@ -29,9 +29,13 @@ function displayResults(results) {
   // Clear previous results
   resultsContainer.innerHTML = "";
 
+  // Step 3: If there are no matching results in titles
   if (results.length === 0) {
-    resultsContainer.innerHTML = "No results found.";
-  } else {
+    // Step 4: If there is no data available at all
+    if (sampleData.length === 0) {
+      resultsContainer.innerHTML = "No data available.";
+  } 
+  else {
     // Display each result
     results.forEach(result => {
       var resultElement = document.createElement("div");
