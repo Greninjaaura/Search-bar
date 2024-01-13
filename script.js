@@ -1,10 +1,6 @@
 function search() {
   // Perform the search and get results
 
-  // Assuming you have a variable called resultsContainer to represent the results container
-  resultsContainer.style.backgroundColor = "rgba(255, 255, 255, 1)"; // Set background to fully visible
-}
-
 // Sample data for demonstration
 const sampleData = [
   { title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet..." },
@@ -36,14 +32,18 @@ function displayResults(results) {
   // Clear previous results
   resultsContainer.innerHTML = "";
 
-  // Step 3: If there are no matching results in titles
+  // Calculate relevance scores for each result
+  results.forEach(result => {
+    result.relevance = calculateRelevance(result, searchTerm);
+  });
+
+  // Sort results by relevance in descending order
+  results.sort((a, b) => b.relevance - a.relevance);
+
+  // Display results
   if (results.length === 0) {
-    // Step 4: If there is no data available at all
-    if (sampleData.length === 0) {
-      resultsContainer.innerHTML = "No data available.";
-    } else {
-      resultsContainer.innerHTML = "No results found.";
-    }
+    // Step 3: If there are no matching results in titles
+    // ... (no results handling)
   } else {
     // Display each result
     results.forEach(result => {
@@ -52,4 +52,11 @@ function displayResults(results) {
       resultsContainer.appendChild(resultElement);
     });
   }
+}
+
+// Calculate relevance based on title and content
+function calculateRelevance(result, searchTerm) {
+  var titleMatch = result.title.toLowerCase().includes(searchTerm) ? 1 : 0;
+  var contentMatch = result.content.toLowerCase().includes(searchTerm) ? 1 : 0;
+  return titleMatch + contentMatch;
 }
