@@ -26,15 +26,14 @@
       top: 50%;
       transform: translateY(-50%);
       padding: 8px 15px;
-      background-color: #4285F4; /* Google blue color */
-      color: white;
+      color: #808080; /* Gray color for the icon */
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
 
     #search-container button:hover {
-      background-color: #357AE8; /* Darker blue on hover */
+      color: #606060; /* Darker gray on hover */
     }
 
     #search-results {
@@ -47,7 +46,7 @@
 
 <div id="search-container">
   <input type="text" id="search-input" placeholder="Google Search">
-  <button onclick="search()"><i class="fas fa-search"></i></button> <!-- Magnifying glass icon -->
+  <button onclick="search()"><i class="fas fa-search"></i></button> <!-- Gray magnifying glass icon -->
 </div>
 
 <div id="search-results">
@@ -57,4 +56,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
