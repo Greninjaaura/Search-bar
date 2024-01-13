@@ -1,3 +1,10 @@
+function search() {
+  // Perform the search and get results
+
+  // Assuming you have a variable called resultsContainer to represent the results container
+  resultsContainer.style.backgroundColor = "rgba(255, 255, 255, 1)"; // Set background to fully visible
+}
+
 // Sample data for demonstration
 const sampleData = [
   { title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet..." },
