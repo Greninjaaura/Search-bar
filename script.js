@@ -1,6 +1,3 @@
-function search() {
-  // Perform the search and get results
-
 // Sample data for demonstration
 const sampleData = [
   { title: "Lorem Ipsum", content: "Lorem ipsum dolor sit amet..." },
@@ -51,6 +48,10 @@ function displayResults(results) {
       resultElement.innerHTML = `<strong>${result.title}</strong><br>${result.content}`;
       resultsContainer.appendChild(resultElement);
     });
+
+    // Make the results box visible
+    resultsContainer.style.backgroundColor = "rgba(255, 255, 255, 1)";
+    resultsContainer.style.display = "block";
   }
 }
 
